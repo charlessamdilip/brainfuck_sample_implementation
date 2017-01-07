@@ -1,1 +1,0 @@
-#brainfuck_sample_implementation
