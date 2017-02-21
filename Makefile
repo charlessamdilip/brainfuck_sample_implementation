@@ -3,7 +3,7 @@ all: create_bin create_binaries create_executable
 	$(info Successfully Done.)
 
 create_executable:
-	g++  $(CC_FLAGS) -I src/headers bin/bf_messages.o bin/bf_tokenizer.o bin/bf_executor.o bin/bf_engine.o src/interpretor.cpp -o bin/interpretor
+	g++  $(CC_FLAGS) -I src/headers bin/bf_messages.o bin/bf_tokenizer.o bin/bf_executor.o bin/bf_engine.o src/interpretor.cpp -o bin/bf_interpretor
 
 create_binaries:
 	g++ $(CC_FLAGS) -I src/headers -c src/lib/bf_messages.cpp -o bin/bf_messages.o

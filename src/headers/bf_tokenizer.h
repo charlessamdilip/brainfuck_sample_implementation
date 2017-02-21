@@ -10,6 +10,8 @@ class Tokenizer{
 private:
   bool match_view_op1(string*);
   bool match_view_op2(string*);
+  bool match_viewi_op1(string*);
+  bool match_viewi_op2(string*);
   bool match_set_op1(string*);
   bool match_set_op2(string*);
   bool match_quit(string*);

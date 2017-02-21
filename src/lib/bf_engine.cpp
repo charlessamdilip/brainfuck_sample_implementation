@@ -2,9 +2,11 @@
 
 Engine::Engine() {
   v = new vector<char>(10000);
+  itr = v->begin();
   for (vector<char>::iterator itr= v->begin(); itr < v->end(); ++itr) *itr = 0;
   t = new Tokenizer();
   m = new Messages();
+  ex = new Executor();
   m->display_welcome_message();
 }
 
@@ -30,6 +32,15 @@ void Engine::start() {
       int a = extract_a(&in, type, true);
       int b = extract_b(&in, type);
       display(a, b);
+    } else if (c == viewi_op1) {
+      string *type = new string("viewi");
+      int a = extract_a(&in, type);
+      displayi(a, a);
+    } else if (c == viewi_op2) {
+      string *type = new string("viewi");
+      int a = extract_a(&in, type, true);
+      int b = extract_b(&in, type);
+      displayi(a, b);
     } else if (c == set_op1) {
       string *type = new string("set");
       int a = extract_a(&in, type);
@@ -41,7 +52,7 @@ void Engine::start() {
       int b = extract_b(&in, type);
       int val = extract_val(&in, true);
       set(a, b, val);
-    }
+    } else ex->execute(&in, v, &itr, m);
   }
 }
 
@@ -85,6 +96,21 @@ void Engine::display(int a, int b) {
     int count = 10;
     while (count > 0 && itr < v-> begin() + b + 1) {
       cout << pos <<  ": " << *itr  << "\t";
+      ++pos;
+      --count;
+      ++itr;
+    }
+    cout << endl;
+  }
+}
+
+void Engine::displayi(int a, int b) {
+  vector<char>::iterator itr = v->begin() + a;
+  int pos = a;
+  while (itr < v-> begin() + b + 1) {
+    int count = 10;
+    while (count > 0 && itr < v-> begin() + b + 1) {
+      cout << pos <<  ": " << (int)*itr  << "\t";
       ++pos;
       --count;
       ++itr;

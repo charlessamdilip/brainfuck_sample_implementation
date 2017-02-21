@@ -1,9 +1,10 @@
 #include <vector>
+#include <stack>
 #include "bf_messages.h"
 
 using namespace std;
 
 class Executor {
 public:
-  void execute(string*, vector<char>*, Messages*, int*);
+  bool execute(string*, vector<char>*, vector<char>::iterator*, Messages*);
 };
