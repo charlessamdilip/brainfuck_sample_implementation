@@ -1,4 +1,5 @@
-
+# Prerequisites
+ - c++11
 # Using the interpretor
  - Run `make` (the interpretor will get generated in the bin).
  - Run `make clean` to clean bin folder.
