@@ -45,10 +45,7 @@ bool Executor::execute(string* s, vector<char>* v, vector<char>::iterator* itr, 
             ++i;
             S.pop();
           }
-          else {
-            i = S.top();
-            S.pop();
-          }
+          else i = S.top() + 1;
           break;
         case '.':
           ++i;
